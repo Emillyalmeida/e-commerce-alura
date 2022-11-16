@@ -4,36 +4,54 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/styles/reset.css" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/5fe92a0230.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Alura Geek</title>
   </head>
-  <body>
-    <header>
-      <img src="" alt="" />
-      <input type="search" />
-      <button>Login</button>
+  <body class="light-theme">
+    <header class="header">
+      <img
+        class="header__image"
+        src="./src/assets/logo-alura.svg"
+        alt="logo loja"
+      />
+      <div class="header__search">
+        <input
+          type="search"
+          class="search__input"
+          placeholder="O que deseja encontrar?"
+        />
+        <i class="fa-solid fa-magnifying-glass search__icon"></i>
+      </div>
+      <button class="header__button">Login</button>
     </header>
     <main>
       <section class="banner">
-        <h1>Dezembro Promocional</h1>
-        <h3>Produtos selecionados com 33% de desconto</h3>
-        <button>Ver Consoles</button>
+        <h1 class="banner__title">Dezembro Promocional</h1>
+        <h3 class="banner__subtitle">
+          Produtos selecionados com 33% de desconto
+        </h3>
+        <button class="banner__button">Ver Consoles</button>
       </section>
-      <section class="produtos">
-        <div class="produtos--category">
-          <div>
-            <div>
-              <h2>Star Wars</h2>
-              <button>Ver mais</button>
-            </div>
-            <ul>
-              <li>
-                <img src="" alt="" />
-                <h3>Nome do produto</h3>
-                <span>preço</span>
-                <button>ver produto</button>
-              </li>
-            </ul>
-          </div>
+      <section class="products">
+        <div class="products__category">
+          <h2 class="products__title">Star Wars</h2>
+          <ul class="products__list-card">
+            <li class="products__card">
+              <img
+                class="products__card-img"
+                src="./src/assets/listProducts/baby-yoda.png"
+                alt="img"
+              />
+              <h3 class="products__card-name">Nome do produto</h3>
+              <span class="products__card-price">preço</span>
+              <a class="products__card-link">ver produto</a>
+            </li>
+          </ul>
         </div>
       </section>
       <section class="rodapé">
@@ -60,9 +78,26 @@
         <button>Enviar Mensagem</button>
       </form>
     </main>
-    <footer>
-      <h4>Emilly de Almeida</h4>
-      <span>2022</span>
+    <footer class="footer">
+      <h3 class="footer__autor">Created by Emilly Almeida</h3>
+      <span class="footer__data">2022</span>
+      <div class="footer__social-medias">
+        <a
+          href="https://www.linkedin.com/in/emilly-almeida-front-end/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/Emillyalmeida"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
     </footer>
+    <script type="module" src="./src/js/home.js"></script>
   </body>
 </html>
