@@ -2,6 +2,7 @@
 
 * {
   transition: 0.75s;
+  box-sizing: border-box;
 }
 
 .light-theme {
@@ -97,7 +98,8 @@ body {
   font-weight: 600;
 }
 
-.banner__button {
+.banner__button,
+.rodape__button {
   color: #fff;
   background-color: #2a7ae4;
   border: none;
@@ -161,6 +163,41 @@ body {
   text-decoration: underline;
 }
 
+.rodape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 30px 5%;
+  background-color: #eaf2fd;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rodape__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.rodape__link:hover {
+  text-decoration: underline;
+}
+
+.rodape__form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.rodape__form-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -168,8 +205,7 @@ body {
   gap: 10px;
   color: var(--color);
   background-color: var(--background-color);
-  height: 80px;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .footer__autor {
@@ -182,6 +218,16 @@ body {
   color: #2a7ae4;
 }
 
+.footer__social-medias i {
+  font-size: 1.5rem;
+  color: var(--color);
+}
+
+.footer__social-medias i:hover {
+  color: #2a7ae4;
+  font-size: 1.75rem;
+}
+
 @media screen and (min-width: 768px) {
   .header__search {
     display: flex;
@@ -190,6 +236,7 @@ body {
     border-radius: 20px;
     border: 2px solid #2a7ae4;
     height: 30px;
+    min-width: 250px;
     width: 25%;
     padding: 6px 12px;
   }
@@ -208,9 +255,64 @@ body {
     font-size: 1.5rem;
   }
 
-  .banner__button {
+  .banner__button,
+  .rodape__button {
     padding: 12px 16px;
     width: 180px;
     font-size: 1.1rem;
+  }
+
+  .rodape {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 20% 80%;
+    height: 400px;
+  }
+
+  .rodape__logo {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .rodape__list {
+    align-items: flex-start;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .rodape__form {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    padding-top: 20px;
+    padding-right: 4vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .banner {
+    height: 450px;
+  }
+
+  .rodape {
+    grid-template-columns: 20% 25% 55%;
+    grid-template-rows: 100%;
+    padding: 50px 5%;
+  }
+
+  .rodape__logo {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .rodape__list {
+    grid-column: 2 /3;
+    grid-row: 1 / 2;
+  }
+
+  .rodape__form {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    padding-top: 0px;
   }
 }

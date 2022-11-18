@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/styles/reset.css" />
     <link rel="stylesheet" href="./src/styles/style.css" />
+    <link rel="stylesheet" href="/src/styles/input.css" />
     <script
       src="https://kit.fontawesome.com/5fe92a0230.js"
       crossorigin="anonymous"
@@ -54,29 +55,49 @@
           </ul>
         </div>
       </section>
-      <section class="rodapé">
-        <img src="" alt="" />
-        <ul>
-          <li>Quem somos nós</li>
-          <li>Política de privacidade</li>
-          <li>Programa fidelidade</li>
-          <li>Nossas lojas</li>
-          <li>Quero ser franqueado</li>
-          <li>Anuncie aqui</li>
+      <section class="rodape">
+        <img
+          class="rodape__logo"
+          src="./src/assets/logo-alura.svg"
+          alt="logo loja"
+        />
+        <ul class="rodape__list">
+          <li class="rodape__link">Quem somos nós</li>
+          <li class="rodape__link">Política de privacidade</li>
+          <li class="rodape__link">Programa fidelidade</li>
+          <li class="rodape__link">Nossas lojas</li>
+          <li class="rodape__link">Quero ser franqueado</li>
+          <li class="rodape__link">Anuncie aqui</li>
         </ul>
+        <form class="rodape__form">
+          <h3 class="rodape__form-title">Fale conosco</h3>
+          <div class="input-container">
+            <input
+              name="nome"
+              id="nome"
+              class="input"
+              type="text"
+              placeholder="Nome"
+              data-tipo="nome"
+              required
+            />
+            <label class="input-label" for="nome">Nome</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="textarea-container">
+            <textarea
+              name="message"
+              class="textarea"
+              id="message"
+              cols="20"
+              rows="5"
+            ></textarea>
+            <label class="textarea-label" for="message">Menssagem</label>
+            <span class="textarea-mensagem-erro"></span>
+          </div>
+          <button class="rodape__button" type="submit">Enviar Mensagem</button>
+        </form>
       </section>
-      <form action="">
-        <h3>Fale conosco</h3>
-        <input type="text" name="nome" id="" placeholder="Nome" />
-        <textarea
-          name="nome"
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Escreva sua mensagem"
-        ></textarea>
-        <button>Enviar Mensagem</button>
-      </form>
     </main>
     <footer class="footer">
       <h3 class="footer__autor">Created by Emilly Almeida</h3>
