@@ -1,6 +1,6 @@
 .input-container,
 .textarea-container {
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   margin-bottom: 1rem;
   display: flex;
@@ -37,7 +37,6 @@
   transition: all 0.25s;
 }
 
-.input:not(:placeholder-shown) + .input-label,
 .input:focus + .input-label {
   font-size: 0.875rem;
   top: 0.25rem;
@@ -77,6 +76,7 @@
   border-radius: 7px;
   width: 100%;
   min-height: 3rem;
+  background-color: #fff;
 }
 
 .textarea:focus + .textarea-label {
@@ -98,4 +98,19 @@
   color: #df2525;
   margin-top: 0.5rem;
   padding-left: 0.5rem;
+}
+
+.input-container .select {
+}
+
+.select {
+  height: 52px;
+  border: none;
+  border-bottom: 1px solid #c8c8c8;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+select:focus-visible {
+  outline: 0;
 }

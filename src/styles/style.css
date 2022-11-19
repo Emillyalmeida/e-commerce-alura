@@ -99,7 +99,8 @@ body {
 }
 
 .banner__button,
-.rodape__button {
+.rodape__button,
+.container__button {
   color: #fff;
   background-color: #2a7ae4;
   border: none;
@@ -107,7 +108,9 @@ body {
   width: 120px;
 }
 
-.banner__button:hover {
+.banner__button:hover,
+.rodape__button:hover,
+.container__button:hover {
   opacity: 0.85;
 }
 
@@ -235,7 +238,7 @@ body {
     justify-content: space-between;
     border-radius: 20px;
     border: 2px solid #2a7ae4;
-    height: 30px;
+    height: 35px;
     min-width: 250px;
     width: 25%;
     padding: 6px 12px;

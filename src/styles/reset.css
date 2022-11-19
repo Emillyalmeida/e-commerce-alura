@@ -141,3 +141,7 @@ textarea {
   font-weight: inherit;
   font-family: inherit;
 }
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/input.css" />
+    <link rel="stylesheet" href="../styles/login.css" />
+    <script
+      src="https://kit.fontawesome.com/5fe92a0230.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Cadastro Alura Geek</title>
+  </head>
+  <body class="light-theme">
+    <header class="header">
+      <img
+        class="header__image"
+        src="../assets/logo-alura.svg"
+        alt="logo loja"
+      />
+      <div class="header__search">
+        <input
+          type="search"
+          class="search__input"
+          placeholder="O que deseja encontrar?"
+        />
+        <i class="fa-solid fa-magnifying-glass search__icon"></i>
+      </div>
+      <button class="header__button">Login</button>
+    </header>
+    <main>
+      <section class="container">
+        <form class="container__form">
+          <legend class="container__legend">Faça seu cadastro</legend>
+          <div class="input-container">
+            <input
+              name="nome"
+              id="nome"
+              class="input"
+              type="text"
+              data-tipo="nome"
+              required
+            />
+            <label class="input-label" for="nome">Nome</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="input-container">
+            <input
+              name="email"
+              id="email"
+              class="input"
+              type="email"
+              data-tipo="email"
+              required
+            />
+            <label class="input-label" for="email">Email</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="input-container">
+            <input
+              name="cpf"
+              id="cpf"
+              class="input"
+              type="text"
+              data-tipo="cpf"
+              required
+            />
+            <label class="input-label" for="cpf">CPF</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="input-container">
+            <input
+              name="dataNascimento"
+              id="dataNascimento"
+              class="input"
+              type="text"
+              data-tipo="dataNascimento"
+              required
+            />
+            <label class="input-label" for="dataNascimento"
+              >Data Nascimento</label
+            >
+            <span class="input-mensagem-erro"></span>
+          </div>
+
+          <div class="input-container">
+            <input
+              name="password"
+              id="password"
+              class="input"
+              type="password"
+              data-tipo="password"
+              required
+            />
+            <label class="input-label" for="password">Senha</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="input-container">
+            <input
+              name="passwordConfirm"
+              id="passwordConfirm"
+              class="input"
+              type="password"
+              data-tipo="passwordConfirm"
+              required
+            />
+            <label class="input-label" for="passwordConfirm"
+              >Confirmar senha</label
+            >
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <button class="container__button">Cadastre-se</button>
+          <p class="container__p">
+            Já tem uma conta ?
+            <a class="container__link" href="./login.html">Faça o login</a>
+          </p>
+        </form>
+      </section>
+
+      <section class="rodape">
+        <img
+          class="rodape__logo"
+          src="../assets/logo-alura.svg"
+          alt="logo loja"
+        />
+        <ul class="rodape__list">
+          <li class="rodape__link">Quem somos nós</li>
+          <li class="rodape__link">Política de privacidade</li>
+          <li class="rodape__link">Programa fidelidade</li>
+          <li class="rodape__link">Nossas lojas</li>
+          <li class="rodape__link">Quero ser franqueado</li>
+          <li class="rodape__link">Anuncie aqui</li>
+        </ul>
+        <form class="rodape__form">
+          <h3 class="rodape__form-title">Fale conosco</h3>
+          <div class="input-container">
+            <input
+              name="nome"
+              id="nome"
+              class="input"
+              type="text"
+              placeholder="Nome"
+              data-tipo="nome"
+              required
+            />
+            <label class="input-label" for="nome">Nome</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="textarea-container">
+            <textarea
+              name="message"
+              class="textarea"
+              id="message"
+              cols="20"
+              rows="5"
+            ></textarea>
+            <label class="textarea-label" for="message">Menssagem</label>
+            <span class="textarea-mensagem-erro"></span>
+          </div>
+          <button class="rodape__button" type="submit">Enviar Mensagem</button>
+        </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <h3 class="footer__autor">Created by Emilly Almeida</h3>
+      <span class="footer__data">2022</span>
+      <div class="footer__social-medias">
+        <a
+          href="https://www.linkedin.com/in/emilly-almeida-front-end/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/Emillyalmeida"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
