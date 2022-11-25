@@ -76,6 +76,7 @@
               class="input"
               type="number"
               data-tipo="price"
+              min="0"
               required
             />
             <label class="input-label" for="price">Preço</label>
@@ -83,13 +84,14 @@
           </div>
           <div class="textarea-container">
             <textarea
-              name="message"
+              name="description"
               class="textarea"
-              id="message"
+              id="description"
               cols="20"
               rows="5"
+              data-tipo="description"
             ></textarea>
-            <label class="textarea-label" for="message">Menssagem</label>
+            <label class="textarea-label" for="description">Descrição</label>
             <span class="textarea-mensagem-erro"></span>
           </div>
           <button class="container__button">Adicionar Produto</button>
@@ -132,6 +134,7 @@
               id="message"
               cols="20"
               rows="5"
+              data-tipo="message"
             ></textarea>
             <label class="textarea-label" for="message">Menssagem</label>
             <span class="textarea-mensagem-erro"></span>
@@ -160,5 +163,6 @@
         </a>
       </div>
     </footer>
+    <script src="https://github.com/codermarcos/simple-mask-money/releases/download/v3.0.0/simple-mask-money.js"></script>
   </body>
 </html>

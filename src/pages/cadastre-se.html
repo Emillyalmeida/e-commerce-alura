@@ -37,14 +37,14 @@
           <legend class="container__legend">Faça seu cadastro</legend>
           <div class="input-container">
             <input
-              name="nome"
-              id="nome"
+              name="name"
+              id="name"
               class="input"
               type="text"
-              data-tipo="nome"
+              data-tipo="name"
               required
             />
-            <label class="input-label" for="nome">Nome</label>
+            <label class="input-label" for="name">Nome</label>
             <span class="input-mensagem-erro"></span>
           </div>
           <div class="input-container">
@@ -66,6 +66,7 @@
               class="input"
               type="text"
               data-tipo="cpf"
+              pattern="[0-9]{11}"
               required
             />
             <label class="input-label" for="cpf">CPF</label>
@@ -73,16 +74,14 @@
           </div>
           <div class="input-container">
             <input
-              name="dataNascimento"
-              id="dataNascimento"
+              name="age"
+              id="age"
               class="input"
               type="text"
-              data-tipo="dataNascimento"
+              data-tipo="age"
               required
             />
-            <label class="input-label" for="dataNascimento"
-              >Data Nascimento</label
-            >
+            <label class="input-label" for="age">Data de Nascimento</label>
             <span class="input-mensagem-erro"></span>
           </div>
 
@@ -138,15 +137,15 @@
           <h3 class="rodape__form-title">Fale conosco</h3>
           <div class="input-container">
             <input
-              name="nome"
-              id="nome"
+              name="name"
+              id="name"
               class="input"
               type="text"
               placeholder="Nome"
-              data-tipo="nome"
+              data-tipo="name"
               required
             />
-            <label class="input-label" for="nome">Nome</label>
+            <label class="input-label" for="name">Nome</label>
             <span class="input-mensagem-erro"></span>
           </div>
           <div class="textarea-container">
@@ -156,6 +155,7 @@
               id="message"
               cols="20"
               rows="5"
+              data-tipo="message"
             ></textarea>
             <label class="textarea-label" for="message">Menssagem</label>
             <span class="textarea-mensagem-erro"></span>
