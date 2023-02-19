@@ -1,5 +1,10 @@
 const validty = (input) => {
+  console.log(input.value)
   const typeInput = input.dataset.tipo;
+
+  input.value ? input.classList.add("has-value") : input.classList.remove("has-value")
+
+  console.log(input.classList)
 
   if (validators[typeInput]) {
     validators[typeInput](input);
@@ -10,8 +15,7 @@ const validty = (input) => {
     input.parentElement.querySelector(".input-mensagem-erro").innerHTML = "";
   } else {
     input.parentElement.classList.add("input-container--invalido");
-    input.parentElement.querySelector(".input-mensagem-erro").innerHTML =
-      showErrorsMessage(typeInput, input);
+    input.parentElement.querySelector(".input-mensagem-erro").innerText = showErrorsMessage(typeInput, input);
   }
 };
 
@@ -41,11 +45,11 @@ const errorMessages = {
     patternMismatch:
       "A senha deve conter entre 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula, um número e não deve conter símbolos.",
   },
-  dataNascimento: {
+  age: {
     valueMissing: "O campo de data de nascimento não pode estar vazio.",
     customError: "Você deve ser maior que 18 anos para se cadastrar.",
   },
-  confirmPassword: {
+  passwordConfirm: {
     valueMissing: "O campo de confirmação de senha não pode estar vazio.",
     customError: "As senhas não estão iguais",
   },
@@ -67,14 +71,18 @@ const errorMessages = {
 };
 
 const showErrorsMessage = (typeInput, input) => {
+  let message = ""
   typesErrors.forEach((error) => {
     if (input.validity[error]) {
-      return errorMessages[typeInput][error];
+      console.log(errorMessages[typeInput][error])
+      message = errorMessages[typeInput][error];
     }
   });
+
+  return message
 };
 
-const oldThan18 = () => {
+const oldThan18 = (input) => {
   const today = new Date();
   const birthday = new Date(input.value);
   const todayMore18 = new Date(
@@ -88,33 +96,48 @@ const oldThan18 = () => {
       "Você deve ser maior que 18 anos para se cadastrar."
     );
   }
-};
-
-const isValidCpf = (cpf) => {
-  cpf = cpf.replace(/\D/g, "");
-  let multiplyer = 10;
-
-  if (!verifyVerifications(cpf, multiplyer)) {
-    input.setCustomValidity("Digite um cpf valido");
+  else {
+    input.setCustomValidity("");
   }
 };
 
-const verifyVerifications = (cpf, multiplyer) => {
-  let initialMultiplayer = multiplyer;
+const isValidCpf = (input) => {
+  const cpf = input.value.replace(/\D/g, "");
+  let multiplayer = 10;
+
+  // console.log(!verifyVerifications(cpf, multiplayer))
+
+  if (!verifyVerifications(cpf, multiplayer)) {
+    console.log('entrou')
+    input.setCustomValidity("Digite um cpf valido");
+  }
+  else {
+    input.setCustomValidity("");
+  }
+};
+
+const verifyVerifications = (cpf, multiplayer) => {
+  console.log(multiplayer)
+  if (multiplayer == 12) {
+    return true;
+  }
+  let initialMultiplayer = multiplayer;
   let sun = 0;
-  const digitsCpf = cpf.substr(0, multiplyer - 1).split("");
-  const digitVerify = cpf.charAt(multiplyer - 1);
+  const digitsCpf = cpf.substr(0, multiplayer - 1).split("");
+  // console.log(digitsCpf)
+  const digitVerify = cpf.charAt(multiplayer - 1);
 
   for (let i = 0; initialMultiplayer > 1; initialMultiplayer--) {
-    soma = soma + digitsCpf[i] * initialMultiplayer;
+    sun = sun + digitsCpf[i] * initialMultiplayer;
     i++;
   }
 
-  if (digitVerify == 11(sun % 11)) {
-    if (multiplyer == 11) {
-      return true;
-    }
-    return verifyVerifications(cpf, multiplyer++);
+  let rest = 11 - (sun % 11)
+
+  if(rest == 10 || rest == 11 ) rest = 0
+
+  if (digitVerify == rest) {
+    return verifyVerifications(cpf, multiplayer + 1);
   }
   return false;
 };
