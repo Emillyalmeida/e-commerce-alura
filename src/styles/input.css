@@ -43,6 +43,12 @@
   transition: all 0.25s;
 }
 
+.input.has-value + .input-label  {
+  font-size: 0.875rem;
+  top: 0.25rem;
+  transition: all 0.25s;
+}
+
 .input-container--invalido,
 .textarea-container--invalido {
   margin-bottom: 0.5rem;
@@ -79,7 +85,7 @@
   background-color: #fff;
 }
 
-.textarea:focus + .textarea-label {
+.textarea:focus + .textarea-label,  .textarea.has-value + .textarea-label{
   font-size: 0.875rem;
   top: 0.575rem;
   transition: all 0.25s;
@@ -89,11 +95,11 @@
   border: 1px solid #df2525;
 }
 
-.textarea-mensagem-erro {
+.input-mensagem-erro {
   display: none;
 }
 
-.textarea-container--invalido .textarea-mensagem-erro {
+.textarea-container--invalido .input-mensagem-erro {
   display: block;
   color: #df2525;
   margin-top: 0.5rem;
