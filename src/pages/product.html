@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/input.css" />
-    <link rel="stylesheet" href="../styles/login.css" />
+    <link rel="stylesheet" href="../styles/product.css" />
     <script
       src="https://kit.fontawesome.com/5fe92a0230.js"
       crossorigin="anonymous"
     ></script>
-    <title>Login Alura Geek</title>
+    <title>Detalhes do produto</title>
   </head>
   <body class="light-theme">
     <header class="header">
@@ -32,39 +32,14 @@
       <button class="header__button">Login</button>
     </header>
     <main>
-      <section class="container">
-        <form class="container__form">
-          <legend class="container__legend">Iniciar sessão</legend>
-          <div class="input-container">
-            <input
-              name="email"
-              id="email"
-              class="input"
-              type="email"
-              data-tipo="email"
-              required
-            />
-            <label class="input-label" for="email">Escreva seu email</label>
-            <span class="input-mensagem-erro"></span>
-          </div>
-          <div class="input-container">
-            <input
-              name="password"
-              id="password"
-              class="input"
-              type="password"
-              data-tipo="password"
-              required
-            />
-            <label class="input-label" for="password">Escreva sua senha</label>
-            <span class="input-mensagem-erro"></span>
-          </div>
-          <button class="container__button">Entrar</button>
-          <p class="container__p">
-            Ainda não tem conta ?
-            <a class="container__link" href="./cadastre-se.html">Cadastre-se</a>
-          </p>
-        </form>
+      <section class="product-details">
+      </section>
+
+      <section class="products">
+        <div class="products__category">
+          <h2 class="products__title">Produtos Similares</h2>
+          <ul class="products__list-card"></ul>
+        </div>
       </section>
 
       <section class="rodape">
@@ -132,6 +107,6 @@
         </a>
       </div>
     </footer>
-    <script type="module" src="../js/login.js"></script>
+    <script type="module" src="../js/product.js"></script>
   </body>
 </html>
