@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&display=swap");
 
 * {
-  transition: 0.75s;
+  transition: 0.5s;
   box-sizing: border-box;
 }
 
@@ -117,8 +117,8 @@ body {
 .products {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 30px 5%;
+  gap: 30px;
+  padding: 50px 5%;
   background-color: var(--second-background);
 }
 
@@ -131,24 +131,31 @@ body {
 .products__title {
   font-size: 1.5rem;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .products__list-card {
   display: flex;
-  gap: 10px;
+  gap: 1.5rem;
   overflow-x: scroll;
   overflow-y: hidden;
+  padding-bottom: 20px;
 }
 
 .products__card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
+}
+
+.products__card:hover {
+  border-top: 7px solid #2a7ae4;
 }
 
 .products__card-img {
   width: 150px;
-  height: 170px;
+  height: auto;
   object-fit: contain;
 }
 
@@ -295,6 +302,20 @@ body {
 @media screen and (min-width: 1024px) {
   .banner {
     height: 450px;
+  }
+
+  .products__title {
+    font-size: 1.75rem;
+  }
+
+  .products__list-card {
+    font-size: 1.25rem;
+    height: 360px;
+  }
+
+  .products__card-img {
+    width: 250px;
+    height: auto;
   }
 
   .rodape {

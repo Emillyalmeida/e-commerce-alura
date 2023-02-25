@@ -20,7 +20,7 @@ const createCardProduct = ( ulProducts,category) => {
 
     if(product.category == category){
       const liCard = document.createElement("li");
-      liCard.classList.add("products__card")
+      liCard.classList.add("products__card");
       liCard.innerHTML = 
       `
         <img
@@ -30,10 +30,10 @@ const createCardProduct = ( ulProducts,category) => {
         />
         <h3 class="products__card-name">${product.name}</h3>
         <span class="products__card-price">R$ ${product.price.toFixed(2).replace('.',',')}</span>
-        <a class="products__card-link">ver produto</a>
+        <a class="products__card-link" href='./src/pages/product.html?id=${product.id}'>ver produto</a>
       `
 
-      ulProducts.appendChild(liCard)
+      ulProducts.appendChild(liCard);
     }
 
   })
@@ -43,16 +43,17 @@ const createDivCategory = () => {
   categories.forEach(category => {
     const divProduct = document.createElement("div");
     divProduct.classList.add("products__category");
+    divProduct.id = category;
 
     const ulProducts = document.createElement("ul");
     ulProducts.classList.add("products__list-card");
 
-    createCardProduct(ulProducts,category)
+    createCardProduct(ulProducts,category);
 
     divProduct.innerHTML = `<h2 class="products__title">${category}</h2>`
-    divProduct.appendChild(ulProducts)
+    divProduct.appendChild(ulProducts);
 
-    containerProduct.appendChild(divProduct)
+    containerProduct.appendChild(divProduct);
   })
 };
 
