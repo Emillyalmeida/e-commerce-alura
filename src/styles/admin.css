@@ -1,0 +1,146 @@
+.products__title--admin {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-bottom: 15px;
+    gap: 15px;
+}
+
+.admin__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.products__all {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 175px));
+    gap: 15px;
+    justify-content: center;
+}
+
+.products__card--admin {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+}
+
+.products__card-img--admin {
+    width: 100%;
+    height: fit-content;
+}
+
+.products__card-name {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.btn__action {
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+}
+
+.btn__action.edit {
+    right: 5px;
+}
+
+.btn__action.delete {
+    right: 35px;
+}
+
+.btn__action.delete:hover {
+    color: red;
+    transform: scale(1.25)
+}
+
+.btn__action.edit:hover {
+    color: #2a7ae4;
+    transform: scale(1.25)
+}
+
+.modal-close {
+    display: none;
+}
+
+.modal-open {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+  
+.modal-open > div {
+    width: 80%;
+    min-width: 300px;
+    max-width: 600px;
+    border-radius: 7px;
+    background-color: var(--background-color);
+    color: var(--color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+    height: auto;
+    font-size: 1.2rem;
+}
+
+.modal__title {
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.modal__description {
+    text-align: center;
+}
+
+.div__actions {
+    width: 100%;
+    padding: 10px 20px 0px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.btn {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.btn__close-modal {
+    background-color: #2a7ae4;
+}
+
+.btn__delete {
+    background-color: red;
+}
+
+
+@media screen and (min-width: 768px) {
+    .products__title--admin {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .products__all {
+        justify-content: space-between;
+    }
+}

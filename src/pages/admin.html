@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/input.css" />
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <script
+      src="https://kit.fontawesome.com/5fe92a0230.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Menu Administrador</title>
+  </head>
+  <body class="light-theme">
+    <header class="header">
+      <img
+        class="header__image"
+        src="../assets/logo-alura.svg"
+        alt="logo loja"
+      />
+      <div class="header__search">
+        <input
+          type="search"
+          class="search__input"
+          placeholder="O que deseja encontrar?"
+        />
+        <i class="fa-solid fa-magnifying-glass search__icon"></i>
+      </div>
+    </header>
+    <main>
+      <section class="products">
+        <div class="products__category">
+          <div class="products__title--admin">
+            <h2 class="admin__title">Todos os produtos</h2>
+            <button class="rodape__button" type="submit">Adicionar produto</button>
+          </div>
+          <ul class="products__all"></ul>
+        </div>
+      </section>
+
+      <section class="rodape">
+        <img
+          class="rodape__logo"
+          src="../assets/logo-alura.svg"
+          alt="logo loja"
+        />
+        <ul class="rodape__list">
+          <li class="rodape__link">Quem somos nós</li>
+          <li class="rodape__link">Política de privacidade</li>
+          <li class="rodape__link">Programa fidelidade</li>
+          <li class="rodape__link">Nossas lojas</li>
+          <li class="rodape__link">Quero ser franqueado</li>
+          <li class="rodape__link">Anuncie aqui</li>
+        </ul>
+        <form class="rodape__form">
+          <h3 class="rodape__form-title">Fale conosco</h3>
+          <div class="input-container">
+            <input
+              name="nome"
+              id="nome"
+              class="input"
+              type="text"
+              placeholder="Nome"
+              data-tipo="nome"
+              required
+            />
+            <label class="input-label" for="nome">Nome</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="textarea-container">
+            <textarea
+              name="message"
+              class="textarea"
+              id="message"
+              cols="20"
+              rows="5"
+              data-tipo="message"
+            ></textarea>
+            <label class="textarea-label" for="message">Menssagem</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <button class="rodape__button" type="submit">Enviar Mensagem</button>
+        </form>
+      </section>
+      <div id="modal" class="modal-close">
+        <div class="confirm-modal">
+          <h3 class="modal__title">Excluir</h3>
+          <span class="modal__description">Essa ação não pode ser revertida.Deseja excluir o produto?</span>
+          <div class="div__actions">
+            <button class=" btn btn__close-modal">Fechar</button>
+            <button class="btn btn__delete">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <h3 class="footer__autor">Created by Emilly Almeida</h3>
+      <span class="footer__data">2022</span>
+      <div class="footer__social-medias">
+        <a
+          href="https://www.linkedin.com/in/emilly-almeida-front-end/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/Emillyalmeida"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </footer>
+    <script type="module" src="../js/admin.js"></script>
+  </body>
+</html>
