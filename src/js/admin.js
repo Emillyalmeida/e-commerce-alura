@@ -2,8 +2,12 @@ import listProducts from "./db.js";
 
 const ulAllProducts = document.querySelector(".products__all");
 const modal = document.getElementById("modal");
+const btnCloseModal = document.querySelector(".btn__close-modal");
+const btnConfirmDelete = document.querySelector(".btn__delete");
 
-listProducts.forEach((product)=> {
+const mountedListProducts = (listProduct) => {
+  ulAllProducts.innerHTML = "";
+  listProduct.forEach((product)=> {
     const liCard = document.createElement("li");
     liCard.classList.add("products__card--admin");
 
@@ -22,20 +26,40 @@ listProducts.forEach((product)=> {
       <button class="btn__action delete">
         <i id=${product.id} class="fa-solid fa-trash"></i>
       </button>
-    `
-     ulAllProducts.appendChild(liCard)
-})
+    `;
+     ulAllProducts.appendChild(liCard);
+  })
+  const btnDelete = document.querySelectorAll(".delete");
 
-const openModalDelete = () => {
-    modal.classList.remove('modal-close')
-    modal.classList.add("modal-open")
+  btnDelete.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+          console.log(e.target.id)
+          openModalDelete(e.target.id);
+      });
+  });
 }
 
-const btnDelete = document.querySelectorAll(".delete");
+mountedListProducts(listProducts)
 
-btnDelete.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        console.log(e.target.id)
-        openModalDelete();
-    })
+const openModalDelete = (idProduto) => {
+    modal.classList.remove("modal-close");
+    modal.classList.add("modal-open");
+    btnConfirmDelete.dataset.id = idProduto;
+};
+
+const closeModalDelete = () => {
+  modal.classList.remove("modal-open")
+  modal.classList.add("modal-close")
+};
+
+
+btnCloseModal.addEventListener("click", () => {
+  closeModalDelete();
+});
+
+btnConfirmDelete.addEventListener("click", (e) => {
+  const findProduct = listProducts.findIndex(product => product.id == e.target.dataset.id);
+  listProducts.splice(findProduct, 1);
+  mountedListProducts(listProducts);
+  closeModalDelete();
 })
