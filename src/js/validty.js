@@ -29,6 +29,8 @@ const typesErrors = [
   "typeMismatch",
   "patternMismatch",
   "rangeUnderflow",
+  "tooLong",
+  "tooShort",
   "customError",
 ];
 
@@ -63,11 +65,17 @@ const errorMessages = {
   },
   description: {
     valueMissing: "O campo de descrição não pode estar vazio.",
+    tooShort: "Caracteres minimos: 20",
+    tooLong: "Caracteres minimos: 150"
   },
   price: {
     valueMissing: "O campo de descrição não pode estar vazio.",
     rangeUnderflow: "O preço precisa ser maior que 0",
   },
+  url: {
+    valueMissing: "O campo de url não pode estar vazio.",
+    typeMismatch: "A url digitada não é válida"
+  }
 };
 
 const showErrorsMessage = (typeInput, input) => {

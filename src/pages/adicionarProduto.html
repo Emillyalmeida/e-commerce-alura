@@ -50,7 +50,13 @@
             <span class="input-mensagem-erro"></span>
           </div>
           <div class="input-container">
-            <select class="select" name="category" id="category">
+            <select 
+              class="select" 
+              name="category" 
+              id="category" 
+              placeholder="categoria" 
+              required
+            >
               <option value="star Wars">star Wars</option>
               <option value="consoles">Consoles</option>
               <option value="diversos">Diversos</option>
@@ -63,7 +69,7 @@
               id="nomeProduto"
               class="input"
               type="text"
-              data-tipo="nomeProduto"
+              data-tipo="name"
               required
             />
             <label class="input-label" for="nomeProduto">Nome do Produto</label>
@@ -76,7 +82,7 @@
               class="input"
               type="number"
               data-tipo="price"
-              min="0"
+              min=1
               required
             />
             <label class="input-label" for="price">Preço</label>
@@ -90,11 +96,14 @@
               cols="20"
               rows="5"
               data-tipo="description"
+              minlength="20"
+              maxlength="150"
+              required
             ></textarea>
             <label class="textarea-label" for="description">Descrição</label>
             <span class="input-mensagem-erro"></span>
           </div>
-          <button class="container__button">Adicionar Produto</button>
+          <button type="submit" class="container__button">Adicionar Produto</button>
         </form>
       </section>
 
@@ -135,6 +144,7 @@
               cols="20"
               rows="5"
               data-tipo="message"
+              required
             ></textarea>
             <label class="textarea-label" for="message">Menssagem</label>
             <span class="input-mensagem-erro"></span>
@@ -164,5 +174,6 @@
       </div>
     </footer>
     <script src="https://github.com/codermarcos/simple-mask-money/releases/download/v3.0.0/simple-mask-money.js"></script>
+    <script type="module" src="../js/addProduct.js"></script>
   </body>
 </html>

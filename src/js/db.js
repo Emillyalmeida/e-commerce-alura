@@ -1,4 +1,4 @@
-const listProducts = [
+let listProducts = [
   {
     id: 1,
     name: "caneca star wars",
@@ -127,4 +127,8 @@ const listProducts = [
   },
 ];
 
-export default listProducts;
+const modifyList = (list) => {
+ listProducts = list
+}
+
+export {listProducts, modifyList};

@@ -1,4 +1,4 @@
-import listProducts from "./db.js";
+import { listProducts, modifyList } from "./db.js";
 
 const ulAllProducts = document.querySelector(".products__all");
 const modal = document.getElementById("modal");
@@ -6,20 +6,23 @@ const btnCloseModal = document.querySelector(".btn__close-modal");
 const btnConfirmDelete = document.querySelector(".btn__delete");
 
 const mountedListProducts = (listProduct) => {
+  console.log(listProduct)
   ulAllProducts.innerHTML = "";
   listProduct.forEach((product)=> {
     const liCard = document.createElement("li");
     liCard.classList.add("products__card--admin");
 
+    const img = product.img.includes('http') ? product.img : `../../${product.img}`
+
     liCard.innerHTML = 
     `
       <img
         class="products__card-img--admin"
-        src=../../${product.img}
+        src=${img}
         alt="${product.name}"
       />
       <h3 class="products__card-name">${product.name}</h3>
-      <span class="products__card-price">R$ ${product.price.toFixed(2).replace('.',',')}</span>
+      <span class="products__card-price">R$ ${Number(product.price).toFixed(2).replace('.',',')}</span>
       <button class="btn__action edit">
         <i class="fa-solid fa-pen"></i>
       </button>
@@ -37,6 +40,10 @@ const mountedListProducts = (listProduct) => {
           openModalDelete(e.target.id);
       });
   });
+}
+
+if(localStorage.getItem("@alurageek/products")) {
+ modifyList(JSON.parse(localStorage.getItem("@alurageek/products")))
 }
 
 mountedListProducts(listProducts)
@@ -60,6 +67,7 @@ btnCloseModal.addEventListener("click", () => {
 btnConfirmDelete.addEventListener("click", (e) => {
   const findProduct = listProducts.findIndex(product => product.id == e.target.dataset.id);
   listProducts.splice(findProduct, 1);
+  localStorage.setItem("@alurageek/products", JSON.stringify(listProducts))
   mountedListProducts(listProducts);
   closeModalDelete();
 })
