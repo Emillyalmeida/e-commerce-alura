@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/input.css" />
+    <link rel="stylesheet" href="../styles/login.css" />
+    <script
+      src="https://kit.fontawesome.com/5fe92a0230.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Editar produto</title>
+  </head>
+  <body class="light-theme">
+    <header class="header">
+      <a href="../../index.html">
+        <img
+          class="header__image"
+          src="../assets/logo-alura.svg"
+          alt="logo loja"
+        />
+      </a>
+      <div class="header__search">
+        <input
+          type="search"
+          class="search__input"
+          placeholder="O que deseja encontrar?"
+        />
+        <i class="fa-solid fa-magnifying-glass search__icon"></i>
+      </div>
+      <a href="./login.html">
+        <button class="header__button">Login</button>
+      </a>
+    </header>
+    <main>
+      <section class="container">
+        <form class="container__form --start">
+          <legend class="container__legend container__legend--start">
+          </legend>
+          <div class="input-container">
+            <input
+              name="img"
+              id="img"
+              class="input"
+              type="text"
+              data-tipo="url"
+              required
+            />
+            <label class="input-label" for="url">Url Imagem</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="input-container">
+            <select 
+              class="select" 
+              name="category" 
+              id="category" 
+              placeholder="categoria" 
+              required
+            >
+              <option value="star wars">star Wars</option>
+              <option value="console">Consoles</option>
+              <option value="diversos">Diversos</option>
+            </select>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="input-container">
+            <input
+              name="name"
+              id="name"
+              class="input"
+              type="text"
+              data-tipo="name"
+              required
+            />
+            <label class="input-label" for="nomeProduto">Nome do Produto</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="input-container">
+            <input
+              name="price"
+              id="price"
+              class="input"
+              type="number"
+              data-tipo="price"
+              min=1
+              required
+            />
+            <label class="input-label" for="price">Preço</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="textarea-container">
+            <textarea
+              name="description"
+              class="textarea"
+              id="description"
+              cols="20"
+              rows="5"
+              data-tipo="description"
+              minlength="20"
+              maxlength="150"
+              required
+            ></textarea>
+            <label class="textarea-label" for="description">Descrição</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <button type="submit" class="container__button">Editar Produto</button>
+        </form>
+      </section>
+
+      <section class="rodape">
+        <img
+          class="rodape__logo"
+          src="../assets/logo-alura.svg"
+          alt="logo loja"
+        />
+        <ul class="rodape__list">
+          <li class="rodape__link">Quem somos nós</li>
+          <li class="rodape__link">Política de privacidade</li>
+          <li class="rodape__link">Programa fidelidade</li>
+          <li class="rodape__link">Nossas lojas</li>
+          <li class="rodape__link">Quero ser franqueado</li>
+          <li class="rodape__link">Anuncie aqui</li>
+        </ul>
+        <form class="rodape__form">
+          <h3 class="rodape__form-title">Fale conosco</h3>
+          <div class="input-container">
+            <input
+              name="nome"
+              id="nome"
+              class="input"
+              type="text"
+              placeholder="Nome"
+              data-tipo="nome"
+              required
+            />
+            <label class="input-label" for="nome">Nome</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <div class="textarea-container">
+            <textarea
+              name="message"
+              class="textarea"
+              id="message"
+              cols="20"
+              rows="5"
+              data-tipo="message"
+              required
+            ></textarea>
+            <label class="textarea-label" for="message">Menssagem</label>
+            <span class="input-mensagem-erro"></span>
+          </div>
+          <button class="rodape__button" type="submit">Enviar Mensagem</button>
+        </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <h3 class="footer__autor">Created by Emilly Almeida</h3>
+      <span class="footer__data">2022</span>
+      <div class="footer__social-medias">
+        <a
+          href="https://www.linkedin.com/in/emilly-almeida-front-end/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/Emillyalmeida"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </footer>
+    <script src="https://github.com/codermarcos/simple-mask-money/releases/download/v3.0.0/simple-mask-money.js"></script>
+    <script type="module" src="../js/editProduct.js"></script>
+  </body>
+</html>

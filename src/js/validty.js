@@ -22,6 +22,7 @@ const validty = (input) => {
 const validators = {
   age: (input) => oldThan18(input),
   cpf: (input) => isValidCpf(input),
+  url: (input) => isValidImage(input)
 };
 
 const typesErrors = [
@@ -74,7 +75,7 @@ const errorMessages = {
   },
   url: {
     valueMissing: "O campo de url não pode estar vazio.",
-    typeMismatch: "A url digitada não é válida"
+    customError: "Imagem invalida.",
   }
 };
 
@@ -108,6 +109,12 @@ const oldThan18 = (input) => {
     input.setCustomValidity("");
   }
 };
+
+const isValidImage = (input) => {
+  const valid = (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(input.value)
+
+  valid ? input.setCustomValidity("") : input.setCustomValidity("Imagem invalida.");
+}
 
 const isValidCpf = (input) => {
   const cpf = input.value.replace(/\D/g, "");

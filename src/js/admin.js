@@ -24,7 +24,7 @@ const mountedListProducts = (listProduct) => {
       <h3 class="products__card-name">${product.name}</h3>
       <span class="products__card-price">R$ ${Number(product.price).toFixed(2).replace('.',',')}</span>
       <button class="btn__action edit">
-        <i class="fa-solid fa-pen"></i>
+        <i data-id=${product.id} class="fa-solid fa-pen"></i>
       </button>
       <button class="btn__action delete">
         <i id=${product.id} class="fa-solid fa-trash"></i>
@@ -33,6 +33,7 @@ const mountedListProducts = (listProduct) => {
      ulAllProducts.appendChild(liCard);
   })
   const btnDelete = document.querySelectorAll(".delete");
+  const btnEdit = document.querySelectorAll(".edit");
 
   btnDelete.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -40,6 +41,14 @@ const mountedListProducts = (listProduct) => {
           openModalDelete(e.target.id);
       });
   });
+
+  btnEdit.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      console.log(e.target.dataset.id)
+      // window.location = './login.html'
+      window.location = `./editProduct.html?id=${e.target.dataset.id}`;
+    });
+});
 }
 
 if(localStorage.getItem("@alurageek/products")) {

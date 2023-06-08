@@ -32,7 +32,7 @@ form.addEventListener("submit", (event) => {
     }
   }
 
-  const { email, password} = dataLogin;
+  const { email, password } = dataLogin;
 
   console.log(isRegister)
 
@@ -42,6 +42,10 @@ form.addEventListener("submit", (event) => {
     localStorage.setItem("@alurageek/user", JSON.stringify(user));
     if(user._autheticaded){
       console.log('logado')
+      window.location = './admin.html'
+    }
+    else {
+      console.log('verifique se a senha e o email estão corretos')
     }
   }
   else{
