@@ -1,7 +1,9 @@
 import validty from "./validty.js";
-import listProducts from "./db.js";
+import { listProducts, modifyList } from "./db.js";
 
-const btnLogin = document.querySelector(".header__button");
+if(localStorage.getItem("@alurageek/products")) {
+  modifyList(JSON.parse(localStorage.getItem("@alurageek/products")))
+}
 
 const containerProduct = document.querySelector(".products");
 const categories = [];
@@ -21,15 +23,17 @@ const createCardProduct = ( ulProducts,category) => {
     if(product.category == category){
       const liCard = document.createElement("li");
       liCard.classList.add("products__card");
+      const img = product.img.includes('http') ? product.img : `../../${product.img}`
+
       liCard.innerHTML = 
       `
         <img
           class="products__card-img"
-          src=${product.img}
+          src=${img}
           alt="${product.name}"
         />
         <h3 class="products__card-name">${product.name}</h3>
-        <span class="products__card-price">R$ ${product.price.toFixed(2).replace('.',',')}</span>
+        <span class="products__card-price">R$ ${Number(product.price).toFixed(2).replace('.',',')}</span>
         <a class="products__card-link" href='./src/pages/product.html?id=${product.id}'>ver produto</a>
       `
 
@@ -59,10 +63,6 @@ const createDivCategory = () => {
 
 listCategories();
 createDivCategory();
-
-btnLogin.addEventListener("click", () => {
-  window.location.href = "./src/pages/login.html";
-});
 
 const inputs = document.querySelectorAll(".input");
 

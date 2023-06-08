@@ -1,5 +1,5 @@
 import { Product } from "../models/product.js";
-import { listProducts } from "./db.js";
+import { listProducts, modifyList } from "./db.js";
 import validty from "./validty.js";
 
 const inputs = document.querySelectorAll(".input");
@@ -49,11 +49,13 @@ form.addEventListener("submit", (event) => {
   const { nomeProduto, price, description, url, category } = dataCadastro
   const newProduct = new Product(nomeProduto, url, category, price, description)
 
+  if(localStorage.getItem("@alurageek/products")) {
+    modifyList(JSON.parse(localStorage.getItem("@alurageek/products")))
+  }
 
   listProducts.push(newProduct)
 
   localStorage.setItem("@alurageek/products", JSON.stringify(listProducts))
-
 
   window.location = './admin.html'
 });

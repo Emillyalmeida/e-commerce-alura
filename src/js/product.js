@@ -1,7 +1,9 @@
 import validty from "./validty.js";
-import listProducts from "./db.js";
+import { listProducts, modifyList } from "./db.js";
 
-const btnLogin = document.querySelector(".header__button");
+if(localStorage.getItem("@alurageek/products")) {
+  modifyList(JSON.parse(localStorage.getItem("@alurageek/products")))
+}
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -14,14 +16,16 @@ const productDetails = document.querySelector(".product-details")
 const product = listProducts.find(product => product.id == id)
 console.log(product)
 
+const img = product.img.includes('http') ? product.img : `../../${product.img}`
+
 
 productDetails.innerHTML = 
 `
 <div class="product-details__content">
-    <img class="details__img" src=../../${product.img} alt=${product.name}>
+    <img class="details__img" src=${img} alt=${product.name}>
     <div class="details__info">
         <h3 class="product__name">${product.name}</h3>
-        <span class="product__price">R$ ${product.price.toFixed(2).replace('.',',')}</span>
+        <span class="product__price">R$ ${Number(product.price).toFixed(2).replace('.',',')}</span>
         <p class="product__description" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
         <button class="product__buy">Comprar</button>
     </div>
@@ -34,15 +38,18 @@ const createCardProduct = ( ulProducts,category) => {
     if(product.category == category){
       const liCard = document.createElement("li");
       liCard.classList.add("products__card");
+
+      const img = product.img.includes('http') ? product.img : `../../${product.img}`
+
       liCard.innerHTML = 
       `
         <img
           class="products__card-img"
-          src=../../${product.img}
+          src=${img}
           alt="${product.name}"
         />
         <h3 class="products__card-name">${product.name}</h3>
-        <span class="products__card-price">R$ ${product.price.toFixed(2).replace('.',',')}</span>
+        <span class="products__card-price">R$ ${Number(product.price).toFixed(2).replace('.',',')}</span>
         <a class="products__card-link" href='./product.html?id=${product.id}'>ver produto</a>
       `
 
