@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&display=swap");
 
 * {
-  transition: 0.5s;
+  transition: 0.3s;
   box-sizing: border-box;
 }
 
@@ -34,7 +34,8 @@ body {
   padding: 0 5%;
 }
 
-.header__img {
+.header__image {
+  cursor: pointer;
 }
 
 .header__search {

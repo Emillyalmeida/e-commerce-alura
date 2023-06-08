@@ -16,11 +16,13 @@
   </head>
   <body class="light-theme">
     <header class="header">
-      <img
-        class="header__image"
-        src="../assets/logo-alura.svg"
-        alt="logo loja"
-      />
+      <a href="../../index.html">
+        <img
+          class="header__image"
+          src="../assets/logo-alura.svg"
+          alt="logo loja"
+        />
+      </a>
       <div class="header__search">
         <input
           type="search"
@@ -29,7 +31,6 @@
         />
         <i class="fa-solid fa-magnifying-glass search__icon"></i>
       </div>
-      <button class="header__button">Login</button>
     </header>
     <main>
       <section class="container">
@@ -42,7 +43,7 @@
               name="url"
               id="url"
               class="input"
-              type="url"
+              type="text"
               data-tipo="url"
               required
             />
@@ -57,8 +58,8 @@
               placeholder="categoria" 
               required
             >
-              <option value="star Wars">star Wars</option>
-              <option value="consoles">Consoles</option>
+              <option value="star wars">star Wars</option>
+              <option value="console">Consoles</option>
               <option value="diversos">Diversos</option>
             </select>
             <span class="input-mensagem-erro"></span>
