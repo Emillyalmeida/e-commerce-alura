@@ -33,5 +33,19 @@ form.addEventListener("submit", (event) => {
   const {name, age, email, password, cpf} = dataCadastro;
   const user = new User(name, email, age, cpf, password);
   localStorage.setItem("@alurageek/user", JSON.stringify(user));
-  window.location = './login.html'
+
+  showToast('success', 'usuário cadastrado com sucesso')
+  setTimeout(() => {
+    window.location = './login.html'
+  }, 2000);
 });
+
+
+function showToast(type, text) {
+  const toast = document.getElementById("snackbar");
+
+  toast.innerText = text
+  toast.className = `show ${type}`;
+
+  setTimeout(function(){ toast.className = toast.className.replace(`show ${type}`, ""); }, 3000);
+}

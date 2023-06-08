@@ -74,7 +74,20 @@ form.addEventListener("submit", (event) => {
   modifyList(listProducts)
   localStorage.setItem("@alurageek/products", JSON.stringify(listProducts))
 
-  window.location = './admin.html'
+  showToast('success', 'Produto editado com sucesso!')
+
+  setTimeout(() => {
+    window.location = './admin.html'
+  }, 2000);
 });
+
+function showToast(type, text) {
+  const toast = document.getElementById("snackbar");
+
+  toast.innerText = text
+  toast.className = `show ${type}`;
+
+  setTimeout(function(){ toast.className = toast.className.replace(`show ${type}`, ""); }, 3000);
+}
   
   

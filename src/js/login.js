@@ -41,14 +41,25 @@ form.addEventListener("submit", (event) => {
     user.login(email, password)
     localStorage.setItem("@alurageek/user", JSON.stringify(user));
     if(user._autheticaded){
-      console.log('logado')
-      window.location = './admin.html'
+      showToast('success','Usuário logado')
+      setTimeout(() => {
+        window.location = './admin.html'
+      }, 2000);
     }
     else {
-      console.log('verifique se a senha e o email estão corretos')
+      showToast('error','verifique se a senha e o email estão corretos')
     }
   }
   else{
-    console.log('não cadastrado')
+    showToast('error','não cadastrado')
   }
 });
+
+function showToast(type, text) {
+  const toast = document.getElementById("snackbar");
+
+  toast.innerText = text
+  toast.className = `show ${type}`;
+
+  setTimeout(function(){ toast.className = toast.className.replace(`show ${type}`, ""); }, 3000);
+}

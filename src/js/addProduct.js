@@ -44,8 +44,6 @@ form.addEventListener("submit", (event) => {
     }
   }
 
-  console.log(dataCadastro)
-
   const { nomeProduto, price, description, url, category } = dataCadastro
   const newProduct = new Product(nomeProduto, url, category, price, description)
 
@@ -57,5 +55,18 @@ form.addEventListener("submit", (event) => {
 
   localStorage.setItem("@alurageek/products", JSON.stringify(listProducts))
 
-  window.location = './admin.html'
+  showToast('success', 'Produto adicionado com sucesso!')
+
+  setTimeout(() => {
+    window.location = './admin.html'
+  }, 2000);
 });
+
+function showToast(type, text) {
+  const toast = document.getElementById("snackbar");
+
+  toast.innerText = text
+  toast.className = `show ${type}`;
+
+  setTimeout(function(){ toast.className = toast.className.replace(`show ${type}`, ""); }, 3000);
+}
