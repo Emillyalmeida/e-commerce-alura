@@ -17,6 +17,7 @@ const product = listProducts.find(product => product.id == id)
 console.log(product)
 
 const img = product.img.includes('http') ? product.img : `../../${product.img}`
+const description = product.description || 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
 
 
 productDetails.innerHTML = 
@@ -26,7 +27,7 @@ productDetails.innerHTML =
     <div class="details__info">
         <h3 class="product__name">${product.name}</h3>
         <span class="product__price">R$ ${Number(product.price).toFixed(2).replace('.',',')}</span>
-        <p class="product__description" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+        <p class="product__description"> ${description}</p>
         <button class="product__buy">Comprar</button>
     </div>
 </div>
