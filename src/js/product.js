@@ -7,17 +7,16 @@ if(localStorage.getItem("@alurageek/products")) {
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get('id')
+const id = urlParams.get('id');
 
 const ulSugestions = document.querySelector(".products__list-card");
-const productDetails = document.querySelector(".product-details")
+const productDetails = document.querySelector(".product-details");
 
 
-const product = listProducts.find(product => product.id == id)
-console.log(product)
+const product = listProducts.find(product => product.id == id);
 
 const img = product.img.includes('http') ? product.img : `../../${product.img}`
-const description = product.description || 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+const description = product.description || 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.';
 
 
 productDetails.innerHTML = 

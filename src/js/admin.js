@@ -6,7 +6,6 @@ const btnCloseModal = document.querySelector(".btn__close-modal");
 const btnConfirmDelete = document.querySelector(".btn__delete");
 
 const mountedListProducts = (listProduct) => {
-  console.log(listProduct)
   ulAllProducts.innerHTML = "";
   listProduct.forEach((product)=> {
     const liCard = document.createElement("li");
@@ -37,15 +36,12 @@ const mountedListProducts = (listProduct) => {
 
   btnDelete.forEach((btn) => {
       btn.addEventListener('click', (e) => {
-          console.log(e.target.id)
           openModalDelete(e.target.id);
       });
   });
 
   btnEdit.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      console.log(e.target.dataset.id)
-      // window.location = './login.html'
       window.location = `./editProduct.html?id=${e.target.dataset.id}`;
     });
 });

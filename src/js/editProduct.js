@@ -18,8 +18,6 @@ const product = listProducts.find(product => product.id == id)
 
 title.innerText = product.name
 
-console.log(product)
-
 inputs.forEach((input) => {
   input.addEventListener("blur", (e) => {
     validty(e.target);
@@ -57,9 +55,6 @@ form.addEventListener("submit", (event) => {
   }
 
   const { name, price, description, img, category } = dataCadastro
-
-  console.log(dataCadastro)
-
   const findProduct = listProducts.findIndex(item => item.id === product.id)
 
   listProducts[findProduct] = {

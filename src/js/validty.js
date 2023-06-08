@@ -1,10 +1,8 @@
 const validty = (input) => {
-  console.log(input.value)
   const typeInput = input.dataset.tipo;
 
   input.value ? input.classList.add("has-value") : input.classList.remove("has-value")
 
-  console.log(input.classList)
 
   if (validators[typeInput]) {
     validators[typeInput](input);
@@ -83,7 +81,6 @@ const showErrorsMessage = (typeInput, input) => {
   let message = ""
   typesErrors.forEach((error) => {
     if (input.validity[error]) {
-      console.log(errorMessages[typeInput][error])
       message = errorMessages[typeInput][error];
     }
   });
@@ -120,10 +117,7 @@ const isValidCpf = (input) => {
   const cpf = input.value.replace(/\D/g, "");
   let multiplayer = 10;
 
-  // console.log(!verifyVerifications(cpf, multiplayer))
-
   if (!verifyVerifications(cpf, multiplayer)) {
-    console.log('entrou')
     input.setCustomValidity("Digite um cpf valido");
   }
   else {
@@ -132,14 +126,12 @@ const isValidCpf = (input) => {
 };
 
 const verifyVerifications = (cpf, multiplayer) => {
-  console.log(multiplayer)
   if (multiplayer == 12) {
     return true;
   }
   let initialMultiplayer = multiplayer;
   let sun = 0;
   const digitsCpf = cpf.substr(0, multiplayer - 1).split("");
-  // console.log(digitsCpf)
   const digitVerify = cpf.charAt(multiplayer - 1);
 
   for (let i = 0; initialMultiplayer > 1; initialMultiplayer--) {
