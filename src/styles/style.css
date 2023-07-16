@@ -73,33 +73,110 @@ body {
   color: #fff;
 }
 
-.banner {
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 600px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  z-index: 1;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.slide__content {
+  position: absolute;
+  top: 8px;
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  height: 90%;
   justify-content: flex-end;
-  gap: 1rem;
-  height: 210px;
-  width: 100%;
-  padding: 20px 5%;
-  color: #fff;
-  box-sizing: border-box;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.7) 100%),
-    url("../assets/banner/consoles.jpg");
-  background-size: cover;
-  background-position: center top;
+  padding: 16px 48px;
 }
 
-.banner__title {
+
+.slide__title {
   font-weight: bold;
-  font-size: 1.75rem;
+  font-size: 2.5rem;
 }
 
-.banner__subtitle {
-  font-weight: 600;
+.slide__subtitle {
+  font-size: 1.25rem;
+  padding-bottom: 16px;
 }
 
-.banner__button,
+.slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dots {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.slide__button,
 .rodape__button,
 .container__button {
   color: #fff;
@@ -109,7 +186,7 @@ body {
   width: 120px;
 }
 
-.banner__button:hover,
+.slide__button:hover,
 .rodape__button:hover,
 .container__button:hover {
   opacity: 0.85;
@@ -252,25 +329,19 @@ body {
     padding: 6px 12px;
   }
 
-  .banner {
-    height: 350px;
-    gap: 20px;
-    padding: 40px 5%;
-  }
-
-  .banner__title {
-    font-size: 3.5rem;
-  }
-
-  .banner__subtitle {
-    font-size: 1.5rem;
-  }
-
-  .banner__button,
+  .slide__button,
   .rodape__button {
     padding: 12px 16px;
     width: 180px;
     font-size: 1.1rem;
+  }
+
+  .slide__title {
+    font-size: 3.5rem;
+  }
+  
+  .slide__subtitle {
+    font-size: 1.75rem;
   }
 
   .rodape {

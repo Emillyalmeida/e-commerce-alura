@@ -1,5 +1,91 @@
 import validty from "./validty.js";
+import banner from "./banner.js";
 import { listProducts, modifyList } from "./db.js";
+
+const containerSlides = document.querySelector(".slideshow-container")
+const containerDots = document.querySelector(".dots")
+const prevBanner = document.querySelector(".prev")
+const nextBanner = document.querySelector(".next")
+
+const createSlides = () => {
+  banner.forEach((slide)=>{
+    const divSlide = document.createElement("div")
+    divSlide.classList.add("mySlides","fade")
+
+    divSlide.innerHTML = `<img class="slide__img" src="${slide.img}" style="width:100%">
+                          <div class="slide__content">
+                            <h1 class="slide__title">${slide.title}</h1>
+                            <h3 class="slide__subtitle">
+                              ${slide.subtitle}
+                            </h3>
+                            <a href=#${slide.actionButton}>
+                              <button class="slide__button">${slide.textButton}</button> 
+                            </a>
+                          </div>`
+
+  containerSlides.appendChild(divSlide)
+  })
+}
+
+const createDots = () => {
+  banner.forEach(() => {
+    const spanDot = document.createElement("span")
+    spanDot.classList.add("dot")
+
+    containerDots.appendChild(spanDot)
+  })
+}
+
+createSlides()
+createDots()
+
+const dots = document.querySelectorAll(".dot")
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function nextAndPrevSlide(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+
+  if(n > slides.length) {slideIndex = 1}
+
+  if(n < 1) {slideIndex = slides.length}
+
+  for(let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for(let i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+nextBanner.addEventListener("click", ()=> {
+  nextAndPrevSlide(1)
+})
+
+prevBanner.addEventListener("click", ()=> {
+  nextAndPrevSlide(-1)
+})
+
+dots.forEach((dot, index)=> {
+  dot.addEventListener("click", () => {
+    currentSlide(index + 1)
+  })
+})
+
 
 if(localStorage.getItem("@alurageek/products")) {
   modifyList(JSON.parse(localStorage.getItem("@alurageek/products")))
