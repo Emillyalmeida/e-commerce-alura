@@ -2,10 +2,18 @@ import validty from "./validty.js";
 import banner from "./banner.js";
 import { listProducts, modifyList } from "./db.js";
 
+const currentUser = JSON.parse(localStorage.getItem("@alurageek/user"));
+const btnAuthenticaded = document.querySelector(".autenticate")
+
 const containerSlides = document.querySelector(".slideshow-container")
 const containerDots = document.querySelector(".dots")
 const prevBanner = document.querySelector(".prev")
 const nextBanner = document.querySelector(".next")
+
+if(currentUser._autheticaded) {
+  btnAuthenticaded.href = './src/pages/admin.html'
+  document.querySelector(".header__button").innerText = "Menu administrador"
+}
 
 let myTimeout = () => {}
 

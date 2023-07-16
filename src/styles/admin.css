@@ -1,3 +1,35 @@
+.header__user {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+  
+.header__user .info__user i {
+    color: #2a7ae4;
+    padding-right: 4px;
+}
+
+.header__user span {
+    font-weight: bold;
+}
+  
+.header__button--logout {
+    border: none;
+    padding: 4px;
+    background-color: transparent;
+    text-transform: uppercase;
+    color: #2a7ae4;
+}
+  
+.header__button--logout i {
+    margin-left: 4px
+}
+  
+.header__button--logout:hover {
+    text-decoration: underline;
+    color: red;
+}  
+
 .products__title--admin {
     display: flex;
     flex-direction: column;
@@ -146,6 +178,11 @@ button.rodape__button {
 
 
 @media screen and (min-width: 768px) {
+    .header__user {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
     .products__title--admin {
         flex-direction: row;
         justify-content: space-between;

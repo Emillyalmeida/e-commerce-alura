@@ -14,4 +14,8 @@ export class User {
            return this._autheticaded = true
         }
     }
+
+    logout(){
+        return this._autheticaded = false;
+    }
 }

@@ -1,9 +1,26 @@
 import { listProducts, modifyList } from "./db.js";
+import { User } from "../models/user.js";
+
+const currentUser = JSON.parse(localStorage.getItem("@alurageek/user"));
 
 const ulAllProducts = document.querySelector(".products__all");
 const modal = document.getElementById("modal");
 const btnCloseModal = document.querySelector(".btn__close-modal");
 const btnConfirmDelete = document.querySelector(".btn__delete");
+const btnLogout = document.querySelector(".header__button--logout")
+const spanUserName = document.querySelector(".user__name")
+
+spanUserName.innerText = currentUser._name
+
+btnLogout.addEventListener("click", () => {
+  const user = new User(currentUser._name, currentUser._email, currentUser._CPF, currentUser._birthday, currentUser._password);
+  user.logout()
+  localStorage.setItem("@alurageek/user", JSON.stringify(user));
+  showToast('success','você foi deslogado!')
+  setTimeout(() => {
+    window.location = "../../index.html"
+  }, 2000);
+})
 
 const mountedListProducts = (listProduct) => {
   ulAllProducts.innerHTML = "";
@@ -75,4 +92,14 @@ btnConfirmDelete.addEventListener("click", (e) => {
   localStorage.setItem("@alurageek/products", JSON.stringify(listProducts))
   mountedListProducts(listProducts);
   closeModalDelete();
+  showToast('success','Produto excluido')
 })
+
+function showToast(type, text) {
+  const toast = document.getElementById("snackbar");
+
+  toast.innerText = text
+  toast.className = `show ${type}`;
+
+  setTimeout(function(){ toast.className = toast.className.replace(`show ${type}`, ""); }, 3000);
+}
