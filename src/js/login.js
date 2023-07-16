@@ -34,8 +34,6 @@ form.addEventListener("submit", (event) => {
 
   const { email, password } = dataLogin;
 
-  console.log(isRegister)
-
   if(isRegister) {
     const user = new User(isRegister._name, isRegister._email, isRegister._CPF, isRegister._birthday, isRegister._password);
     user.login(email, password)
@@ -51,7 +49,7 @@ form.addEventListener("submit", (event) => {
     }
   }
   else{
-    showToast('error','não cadastrado')
+    showToast('error','email não cadastrado')
   }
 });
 

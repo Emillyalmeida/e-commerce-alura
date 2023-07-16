@@ -50,6 +50,7 @@ button.rodape__button {
     cursor: pointer;
     position: absolute;
     top: 5px;
+    filter: drop-shadow(rgb(18, 18, 18) 1px 1px 3px);
 }
 
 .btn__action.edit {
