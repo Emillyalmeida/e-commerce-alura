@@ -7,6 +7,8 @@ const containerDots = document.querySelector(".dots")
 const prevBanner = document.querySelector(".prev")
 const nextBanner = document.querySelector(".next")
 
+let myTimeout = () => {}
+
 const createSlides = () => {
   banner.forEach((slide)=>{
     const divSlide = document.createElement("div")
@@ -45,10 +47,12 @@ let slideIndex = 1;
 showSlides(slideIndex);
 
 function nextAndPrevSlide(n) {
+  clearTimeout(myTimeout)
   showSlides(slideIndex += n);
 }
 
 function currentSlide(n) {
+  clearTimeout(myTimeout)
   showSlides(slideIndex = n);
 }
 
@@ -70,7 +74,7 @@ function showSlides(n) {
 
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-  setTimeout(()=>{showSlides(slideIndex += 1)}, 5000)
+  myTimeout = setTimeout(()=>{showSlides(slideIndex += 1)}, 5000)
 }
 
 nextBanner.addEventListener("click", ()=> {
